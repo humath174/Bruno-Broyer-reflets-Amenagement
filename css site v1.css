@@ -22,9 +22,39 @@ a
 {
     background-image: url("photo fond piscine.jpg");
     background-position: top right;
-    background-attachment: initial; */
+    background-attachment: initial; 
+}*/
+
+.navbar{
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    
 }
 
+.navbar a{
+    color: black;
+}
+
+.navbar .logo{
+        font-size: 2em;
+        font-weight: bold;
+}
+
+.navbar .nav-links ul{
+    display: flex;
+}
+
+.navbar .nav-links ul li{
+    margin: 0 25px;
+}
+   
+.navbar .nav-links ul li{
+    margin: 0 25px;
+}
+  
 .navbar
 {
  margin-top: auto;
