@@ -1,26 +1,81 @@
-<!--?xml version="1.0" encoding="UTF-8"?-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>
-	<url></url>
-		<loc>https://bruno-broyer-reflets-amenagements.tk/</loc>
-		<lastmod>2023-11-23</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>1.0</priority>
-	
-	<url></url>
-		<loc>https://bruno-broyer-reflets-amenagements.tk/about.html</loc>
-		<lastmod>2023-11-23</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.5</priority>
-	
-	<url></url>
-		<loc>https://bruno-broyer-reflets-amenagements.tk/princing.html</loc>
-		<lastmod>2023-11-23</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.3</priority>
-	
-    <url></url>
-		<loc>https://bruno-broyer-reflets-amenagements.tk/tour.html</loc>
-		<lastmod>2023-11-23</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.3</priority>
-	
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/about</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/tour</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/pricing</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/</loc>
+<priority>1.0</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/images/2erephotoamenagement.jpg</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/images/2erephotopiscine.jpg</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/images/2023-03-01_17h34_05.png</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/images/5erephotopiscine.jpg</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/cdn-cgi/l/email-protection#bcd5d2dad3fcdaced9d9d4c8d1d08992dfd3</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/tel:+123456789</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/cdn-cgi/l/email-protection#b7ded9d1d8f7d1c5d2d2dfc3dadb8299d4d8</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/cdn-cgi/l/email-protection#8ee7e0e8e1cee8fcebebe6fae3e2bba0ede1</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/cdn-cgi/l/email-protection#dbb2b5bdb49bbda9bebeb3afb6b7eef5b8b4</loc>
+<priority>0.5</priority>
+<changefreq>daily</changefreq>
+<lastmod>2023-11-21</lastmod>
+</url>
+</urlset>
