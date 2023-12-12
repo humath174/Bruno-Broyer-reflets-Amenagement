@@ -1,6 +1,6 @@
 <?php
 // Informations de connexion à la base de données
-$serveur = "86.202.255.13:3306"; // Remplace par le nom de ton serveur MySQL
+$serveur = "192.168.1.24:3306"; // Remplace par le nom de ton serveur MySQL
 $utilisateur = "pma2022"; // Remplace par ton nom d'utilisateur MySQL
 $motDePasse = "MotdePasseComplexe"; // Remplace par ton mot de passe MySQL
 $baseDeDonnees = "bbra"; // Remplace par le nom de ta base de données
