@@ -80,7 +80,7 @@ if ($connexion->connect_error) {
 }
 
 // Récupérer les informations des utilisateurs depuis la base de données
-$requete = "SELECT * FROM devis";
+$requete = "SELECT * FROM contact";
 $resultat = $connexion->query($requete);
 
 if ($resultat->num_rows > 0) {
