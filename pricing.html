@@ -5,6 +5,133 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
+	<script>
+		function validateForm()
+		{
+			var name = document.forms["myForm"]["name"];
+			var email = document.forms["myForm"]["email"];
+			var message = document.forms["myForm"]["message"];
+
+			if (name.value == "")
+			{
+				document.getElementById('errorname').innerHTML="Veuillez entrez un nom valide";
+				name.focus();
+				return false;
+			}else{
+				document.getElementById('errorname').innerHTML="";
+			}
+
+			if (email.value == "")
+			{
+				document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide";
+				email.focus();
+				return false;
+			}else{
+				document.getElementById('erroremail').innerHTML="";
+			}
+
+			if (email.value.indexOf("@", 0) < 0)
+			{
+				document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide";
+				email.focus();
+				return false;
+			}
+
+			if (email.value.indexOf(".", 0) < 0)
+			{
+				document.getElementById('erroremail').innerHTML="Veuillez entrez une adresse mail valide";
+				email.focus();
+				return false;
+			}
+
+			if (message.value == "")
+			{
+				document.getElementById('errormsg').innerHTML="Veuillez entrez un message valide";
+				message.focus();
+				return false;
+			}else{
+				document.getElementById('errormsg').innerHTML="";
+			}
+
+			return true;
+		}
+	</script>
+	<style>
+		h1{
+			text-align: center;
+		}
+
+		.form-style {
+			margin:10px auto;
+			width: 400px;
+			padding: 20px 12px 10px 20px;
+			font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		}
+
+		.form-style td {
+			padding: 0;
+			display: block;
+			list-style: none;
+			margin: 10px 0 0 0;
+		}
+
+		.form-style label{
+			margin:0 0 3px 0;
+			padding:0px;
+			display:block;
+			font-weight: bold;
+		}
+
+		.form-style .required{
+			color:red;
+		}
+		.form-style input[type=submit], .form-style input[type=reset]{
+			background: #4eb5f1;
+			padding: 8px 15px 8px 15px;
+			border: none;
+			color: #fff;
+		}
+		.form-style input[type=submit]:hover, .form-style input[type=reset]:hover{
+			background: #4eb5f1;
+			box-shadow:none;
+			-moz-box-shadow:none;
+			-webkit-box-shadow:none;
+		}
+		.form-style .field-textarea{
+			height: 100px;
+		}
+		.form-style input[type=text],
+		.form-style input[type=email],
+		textarea{
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			border:1px solid #BEBEBE;
+			padding: 7px;
+			margin:0px;
+			-webkit-transition: all 0.30s ease-in-out;
+			-moz-transition: all 0.30s ease-in-out;
+			-ms-transition: all 0.30s ease-in-out;
+			-o-transition: all 0.30s ease-in-out;
+			outline: none;
+		}
+		.form-style .long{
+			width: 100%;
+		}
+		.form-style input[type=text]:focus,
+		.form-style input[type=email]:focus,
+		.form-style textarea:focus{
+			-moz-box-shadow: 0 0 8px #88D5E9;
+			-webkit-box-shadow: 0 0 8px #88D5E9;
+			box-shadow: 0 0 8px #88D5E9;
+			border: 1px solid #88D5E9;
+		}
+		.error{
+			color: #D8000C;
+			background-color: #FFBABA;
+		}
+	</style>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Bruno Broyer Reflets Amenagements</title>
@@ -270,202 +397,51 @@
 		<!-- #fh5co-header -->
 
 		<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(images/full_image_2.jpg);" data-next="yes">
-			<div class="fh5co-overlay"></div>
-			<div class="container">
-				<div class="fh5co-intro no-js-fullheight">
-					<div class="fh5co-intro-text">
-						<!-- 
-							INFO:
-							Change the class to 'fh5co-right-position' or 'fh5co-center-position' to change the layout position
-							Example:
-							<div class="fh5co-right-position">
-						-->
-						<div class="fh5co-center-position">
-							<h2 class="animate-box">Plans for Everyone</h2>
-							<h3 class="animate-box">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there.</h3>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="fh5co-learn-more animate-box">
-				<a href="#" class="scroll-btn">
-					<span class="text">See our plans and get started today</span>
-					<span class="arrow"><i class="icon-chevron-down"></i></span>
-				</a>
-			</div>
-		</section>
-		<!-- END #fh5co-hero -->
-
-		<section id="fh5co-pricing">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-sm-6 animate-box">
-					<div class="price-box">
-						<h2 class="pricing-plan">Starter</h2>
-						<div class="price"><sup class="currency">$</sup>7<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>10 projects</li>
-							<li>20 Pages</li>
-							<li>20 Emails</li>
-							<li>100 Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="price-box">
-						<h2 class="pricing-plan">Regular</h2>
-						<div class="price"><sup class="currency">$</sup>19<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>15 projects</li>
-							<li>40 Pages</li>
-							<li>40 Emails</li>
-							<li>200 Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
-					</div>
-				</div>
-				<div class="clearfix visible-sm-block"></div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="price-box popular">
-						<div class="popular-text">Best value</div>
-						<h2 class="pricing-plan">Plus</h2>
-						<div class="price"><sup class="currency">$</sup>79<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>Unlimitted projects</li>
-							<li>100 Pages</li>
-							<li>100 Emails</li>
-							<li>700 Images</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Get started</a>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="price-box">
-						<h2 class="pricing-plan">Enterprise</h2>
-						<div class="price"><sup class="currency">$</sup>125<small>/mo</small></div>
-						<p>Basic customer support for small business</p>
-						<hr>
-						<ul class="pricing-info">
-							<li>Unlimitted projects</li>
-							<li>Unlimitted Pages</li>
-							<li>Unlimitted Emails</li>
-							<li>Unlimitted Images</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Get started</a>
-					</div>
-				</div>
-				
-				</div>
-			</div>
-		</section>
-
-		<!-- END #fh5co-pricing -->
-
-		<div id="fh5co-faqs">
-			<div class="container">
-				<div class="row row-bottom-padded-lg">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="fh5co-label animate-box">FAQ</div>
-						<h2 class="fh5co-lead animate-box">Frequently Ask Questions</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<ul class="fh5co-faq-list">
-							<li class="animate-box">
-								<h2>What is Guide?</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-							<li class="animate-box">
-								<h2>What language are available?</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-							<li class="animate-box">
-								<h2>I have technical problem, who do I email?</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-							<li class="animate-box">
-								<h2>Can I have a username that is already taken?</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-							<li class="animate-box">
-								<h2>How do I use Guide features?</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-							<li class="animate-box">
-								<h2>Is Guide free??</h2>
-								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<section id="fh5co-testimonials" class="boredr-top">
-			<div class="container">
-				<div class="row row-bottom-padded-sm">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="fh5co-label animate-box">Testimonials</div>
-						<h2 class="fh5co-lead animate-box">Join the 1 Million Users using Our Products </h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<div class="flexslider">
-					  		<ul class="slides">
-							   <li>
-							      <blockquote>
-							      	<p>&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo;</p>
-							      	<p><cite>&mdash; Steve Jobs</cite></p>
-							      </blockquote>
-							   </li>
-							   <li>
-							    	<blockquote>
-							      	<p>&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo;</p>
-							      	<p><cite>&mdash; Frank Chimero</cite></p>
-							      </blockquote>
-							   </li>
-							   <li>
-							    	<blockquote>
-							      	<p>&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo;</p>
-							      	<p><cite>&mdash; Ferdinand A. Porsche</cite></p>
-							      </blockquote>
-							   </li>
-							</ul>
-						</div>
-						<div class="flexslider-controls">
-						   <ol class="flex-control-nav">
-						      <li class="animate-box"><img src="images/person4.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
-						      <li class="animate-box"><img src="images/person2.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
-						      <li class="animate-box"><img src="images/person3.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
-						   </ol>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END #fh5co-testimonials -->
-
-		<section id="fh5co-subscribe">
-			<div class="container">
-		
-				<h3 class="animate-box"><label for="email">Subscribe to our newsletter</label></h3>
-				<form action="#" method="post" class="animate-box">
-					<i class="fh5co-icon icon-paper-plane"></i>
-					<input type="email" class="form-control" placeholder="Enter your email" id="email" name="email">
-					<input type="submit" value="Send" class="btn btn-primary">
-				</form>
-
-			</div>
+			<h1>Formulaire de contact</h1>
+			<form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
+				<table class="form-style">
+					<tr>
+						<td>
+							<label>
+								Votre nom <span class="required">*</span>
+							</label>
+						</td>
+						<td>
+							<input type="text" name="name" class="long"/>
+							<span class="error" id="errorname"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Votre adresse e-mail <span class="required">*</span>
+							</label>
+						</td>
+						<td>
+							<input type="email" name="email" class="long"/>
+							<span class="error" id="erroremail"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Message <span class="required">*</span>
+							</label>
+						</td>
+						<td>
+							<textarea name="message" class="long field-textarea"></textarea>
+							<span class="error" id="errormsg"></span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input type="submit" value="Envoyer">
+							<input type="reset" value="Réinitialiser">
+						</td>
+					</tr>
+				</table>
+			</form>
 		</section>
 		<!-- END #fh5co-subscribe -->
 
