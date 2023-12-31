@@ -8,7 +8,7 @@ if (isset($_SESSION['username'])) {
     echo "Bienvenue, " . $_SESSION['username'] . "!";
 } else {
     // Redirigez l'utilisateur vers la page de connexion
-    header("Location: login.php");
+    header("Location: connexion.php");
     exit(); // Assurez-vous d'arrêter l'exécution du script après la redirection
 }
 ?>
@@ -56,7 +56,7 @@ if (isset($_SESSION['username'])) {
                     <a class="nav-link" href="devis-rec.php">Devis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="contact-rec.php">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/site/index.html">Retourner sur le site</a>

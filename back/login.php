@@ -1,6 +1,10 @@
 <?php
+
+
 // Démarrer la session
 session_start();
+
+if (!isset($_SESSION['username'])) {
 
 // Paramètres de connexion à la base de données
 include('database.php');
@@ -35,4 +39,10 @@ if ($resultat->num_rows > 0) {
 
 // Fermer la connexion à la base de données
 $connexion->close();
+
+} else {
+    // Afficher un message personnalisé si la session est active
+    echo "<a href='welcome.php'>Tableaux de bord</a>";
+}
+
 ?>
