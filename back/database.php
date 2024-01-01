@@ -1,6 +1,6 @@
 <?php
 // Paramètres de connexion à la base de données
-$serveur = "192.168.1.24:3306";
+$serveur = "86.202.255.13:3306";
 $utilisateur = "monty";
 $motDePasse = "some_pass";
 $baseDeDonnees = "bbra";
