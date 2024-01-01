@@ -72,6 +72,9 @@ if (isset($_SESSION['username'])) {
                     <a class="nav-link text-dark"  href="dashboard-réal.php">Dashboard Réalisation</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark"  href="logout.php">Déconnexion</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark" href="/site/index.html">Retourner sur le site</a>
                 </li>
             </ul>
