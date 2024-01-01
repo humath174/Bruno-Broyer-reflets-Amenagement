@@ -1,3 +1,20 @@
+<?php
+// Connexion à la base de données
+include('back/database.php');
+
+$connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
+
+if ($connexion->connect_error) {
+    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+}
+
+// Récupère les données des images depuis la base de données
+$selectQuery = "SELECT * FROM photos";
+$result = $connexion->query($selectQuery);
+
+// Ferme la connexion à la base de données
+$connexion->close();
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -5,7 +22,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-
     <meta name="msvalidate.01" content="97522F7AC2412B9FEB60193A02ED6806" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +30,24 @@
     <meta name="description" content="Bruno Broyer Reflets Amenagements" />
     <meta name="keywords" content="pisciniste, bruno broyer reflets amenagements, bruno broyer, amenagements, piscine chatillon sur chalaronne, chatillon sur chalaronne, ain, rhone, auvergne rhone-alpes" />
     <meta name="author" content="DigitalGroup" />
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5TXPSHGCFL"></script>
     <script>
@@ -205,24 +239,6 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        form {
-            max-width: 400px;
-            margin: 50px auto;
-        }
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-
 </head>
 
 
@@ -248,7 +264,7 @@
                 </ul>
                 <h1 id="fh5co-logo"><a href="index.html">Acceuil<span>.</span></a></h1>
                 <ul class="pull-right right-menu">
-                    <li class="fh5co-cta-btn"><a href="contact.html">Contact</a></li>
+                    <li class="fh5co-cta-btn"><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -267,7 +283,7 @@
                         <div class="fh5co-right-position">
                     -->
                     <div class="fh5co-left-position">
-                        <h2 class="animate-box">Contactez nous</h2>
+                        <h2 class="animate-box">Differents Photos de mes réalisation</h2>
                     </div>
                 </div>
             </div>
@@ -278,30 +294,33 @@
                 <span class="arrow"><i class="icon-chevron-down"></i></span>
             </a>
         </div>
+    </section>
+    <!-- END #fh5co-hero -->
+
+
+    <section id="fh5co-projects">
+
+        <table>
+            <tr>
+                <?php
+                $count = 0;
+                while ($row = $result->fetch_assoc()) {
+                    // Affiche l'image dans une cellule du tableau
+                    echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['image_data']) . "' alt='" . $row['image_name'] . "'></td>";
+
+                    // Incrémente le compteur
+                    $count++;
+
+                    // Commence une nouvelle ligne après chaque troisième image
+                    if ($count % 3 == 0) {
+                        echo "</tr><tr>";
+                    }
+                }
+                ?>
+            </tr>
+        </table>
 
     </section>
-
-    <section id="fh5co-features-2">
-        <form action="process-contact-form.php" method="post">
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" required>
-
-            <label for="prenom">Prénom :</label>
-            <input type="text" name="prenom" required>
-
-            <label for="email">Email :</label>
-            <input type="email" name="email" required>
-
-            <label for="telephone">Téléphone :</label>
-            <input type="text" name="telephone" required>
-
-            <label for="description">Description :</label>
-            <textarea name="description" rows="4" required></textarea>
-
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
-    <!-- END #fh5co-subscribe -->
 
     <footer id="fh5co-footer">
         <div class="container">

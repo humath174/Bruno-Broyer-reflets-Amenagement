@@ -66,6 +66,9 @@ if (isset($_SESSION['username'])) {
                     <a class="nav-link text-dark"  href="contact-rec.php">Contact</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-dark"  href="img-chr.php">Charger une Image</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-dark" href="/site/index.html">Retourner sur le site</a>
                 </li>
             </ul>
