@@ -1,3 +1,4 @@
+
 <?php
 // Démarrez la session
 session_start();
@@ -12,8 +13,47 @@ if (isset($_SESSION['username'])) {
     exit(); // Assurez-vous d'arrêter l'exécution du script après la redirection
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// Connexion à la base de données
+include('database.php');
+
+
+$connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
+
+if ($connexion->connect_error) {
+    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+}
+
+// Traitement de la soumission du formulaire
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupère les données du formulaire
+    $titre = $connexion->real_escape_string($_POST['titre']);
+    $description = $connexion->real_escape_string($_POST['description']);
+
+    // Vérifie si un fichier a été téléchargé
+    if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        // Lit le contenu du fichier
+        $imageData = file_get_contents($_FILES['image']['tmp_name']);
+        // Échappe les caractères spéciaux pour éviter les injections SQL
+        $imageData = $connexion->real_escape_string($imageData);
+
+        // Insère les données dans la base de données
+        $insertQuery = "INSERT INTO realisation (titre, description, image_data) VALUES ('$titre', '$description', '$imageData')";
+        $result = $connexion->query($insertQuery);
+
+        if ($result) {
+            echo "L'image a été téléchargée avec succès. <a href='dashboard-réal.php'>Retourner sur le dashboard</a>";
+        } else {
+            echo "Une erreur est survenue lors du téléchargement de l'image : " . $connexion->error;
+        }
+    } else {
+        echo "Veuillez sélectionner une image à télécharger.";
+    }
+}
+
+// Ferme la connexion à la base de données
+$connexion->close();
+?>
 
 <head>
     <meta name="msvalidate.01" content="97522F7AC2412B9FEB60193A02ED6806" />
@@ -47,7 +87,6 @@ if (isset($_SESSION['username'])) {
     gtag('config', 'G-5TXPSHGCFL');
 </script>
 <body>
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Administration</a>
@@ -66,10 +105,7 @@ if (isset($_SESSION['username'])) {
                     <a class="nav-link text-dark"  href="contact-rec.php">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark"  href="dashboard-img.php">Dashboard Image</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark"  href="dashboard-réal.php">Dashboard Réalisation</a>
+                    <a class="nav-link text-dark"  href="img-chr.php">Charger une Image</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/site/index.html">Retourner sur le site</a>
@@ -79,65 +115,20 @@ if (isset($_SESSION['username'])) {
     </div>
 </nav>
 
-<div class="container">
-    <h4 class="mt-4">Bienvenue sur l'Administration du site Bruno Broyer Reflets Amenagements</h4>
+<h1>Ajouter une réalisation</h1>
 
-    <?php
-    // Paramètres de connexion à la base de données
-    include('database.php');
+<form action="réa-chr.php" method="post" enctype="multipart/form-data">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" required><br>
 
-    // Créer une connexion à la base de données
-    $connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
+    <label for="description">Description :</label>
+    <textarea name="description" required></textarea><br>
 
-    // Vérifier la connexion
-    if ($connexion->connect_error) {
-        die("La connexion à la base de données a échoué : " . $connexion->connect_error);
-    }
+    <label for="image">Sélectionnez une image :</label>
+    <input type="file" name="image" required><br>
 
-    // Récupérer les informations des trois dernières demandes de devis
-    $requeteDevis = "SELECT * FROM devis ORDER BY date DESC LIMIT 3";
-    $resultatDevis = $connexion->query($requeteDevis);
-
-    if ($resultatDevis->num_rows > 0) {
-        echo "<h2 class='mt-4'>Informations des Trois Dernières Demandes de Devis</h2>";
-        echo "<table class='table'>";
-        echo "<thead><tr><th>ID</th><th>Nom</th><th>Prenom</th><th>Mail</th><th>Telephone</th><th>Description</th></tr></thead><tbody>";
-
-        // Afficher les informations des trois dernières demandes de devis dans le tableau
-        while ($rowDevis = $resultatDevis->fetch_assoc()) {
-            echo "<tr><td>" . $rowDevis["id"] . "</td><td>" . $rowDevis["nom"] . "</td><td>" . $rowDevis["prenom"] . "</td><td>" . $rowDevis["mail"] . "</td><td>" . $rowDevis["tel"] . "</td><td>" . $rowDevis["description"] . "</td></tr>";
-        }
-
-        echo "</tbody></table>";
-    } else {
-        echo "<p>Aucune demande de devis à afficher.</p>";
-    }
-
-    // Récupérer les informations des trois dernières demandes de contact
-    $requeteContact = "SELECT * FROM contact ORDER BY date DESC LIMIT 3";
-    $resultatContact = $connexion->query($requeteContact);
-
-    if ($resultatContact->num_rows > 0) {
-        echo "<h2 class='mt-4'>Informations des Trois Dernières Demandes de Contact</h2>";
-        echo "<table class='table'>";
-        echo "<thead><tr><th>ID</th><th>Nom</th><th>Prenom</th><th>Mail</th><th>Telephone</th><th>Description</th></tr></thead><tbody>";
-
-        // Afficher les informations des trois dernières demandes de contact dans le tableau
-        while ($rowContact = $resultatContact->fetch_assoc()) {
-            echo "<tr><td>" . $rowContact["id"] . "</td><td>" . $rowContact["nom"] . "</td><td>" . $rowContact["prenom"] . "</td><td>" . $rowContact["mail"] . "</td><td>" . $rowContact["tel"] . "</td><td>" . $rowContact["description"] . "</td></tr>";
-        }
-
-        echo "</tbody></table>";
-    } else {
-        echo "<p>Aucune demande de contact à afficher.</p>";
-    }
-
-    // Fermer la connexion à la base de données
-    $connexion->close();
-    ?>
-</div>
+    <input type="submit" value="Envoyer">
+</form>
 
 </body>
-
 </html>
-

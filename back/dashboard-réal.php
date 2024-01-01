@@ -87,10 +87,10 @@ $connexion->close();
                     <a class="nav-link active text-dark" aria-current="page" href="welcome.php">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark"  href="dashboard-img.php">Dashboard Image</a>
+                    <a class="nav-link text-dark"  href="dashboard-réal.php">Dashboard Image</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark"  href="img-chr.php">Charger image</a>
+                    <a class="nav-link text-dark"  href="réa-chr.php">Charger image</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/site/index.html">Retourner sur le site</a>

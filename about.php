@@ -1,3 +1,20 @@
+<?php
+// Connexion à la base de données
+include('back/database.php');
+
+$connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
+
+if ($connexion->connect_error) {
+    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+}
+
+// Récupère les données des réalisations depuis la base de données
+$selectQuery = "SELECT * FROM realisations";
+$result = $connexion->query($selectQuery);
+
+// Ferme la connexion à la base de données
+$connexion->close();
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -5,8 +22,6 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-
-    <meta name="msvalidate.01" content="97522F7AC2412B9FEB60193A02ED6806" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bruno Broyer Reflets Amenagements</title>
@@ -23,6 +38,7 @@
 
         gtag('config', 'G-5TXPSHGCFL');
     </script>
+
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -51,7 +67,9 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.css">
 
-
+    <!--
+    Default Theme Style
+    You can change the style.css (default color purple) to one of these styles
     -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -84,7 +102,25 @@
         */
 
         /* For Demo Purposes Only ( You can delete this anytime :-) */
-
+        #colour-variations {
+            padding: 10px;
+            -webkit-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            width: 140px;
+            position: fixed;
+            left: 0;
+            top: 100px;
+            z-index: 999999;
+            background: #fff;
+            /*border-radius: 4px;*/
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -webkit-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+            -moz-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+            -ms-box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+            box-shadow: 0 0 9px 0 rgba(0,0,0,.1);
+        }
         #colour-variations.sleep {
             margin-left: -140px;
         }
@@ -197,31 +233,26 @@
     </style>
     <!-- End demo purposes only -->
 
-
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
-    <style>
-        form {
-            max-width: 400px;
-            margin: 50px auto;
-        }
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
 
 </head>
 
@@ -242,23 +273,24 @@
         <div class="container">
             <nav role="navigation">
                 <ul class="pull-left left-menu">
-                    <li><a href="about.php">Réalisation</a></li>
+                    <li class="active"><a href="about.html">Réalisation</a></li>
                     <li><a href="image.php">Image</a></li>
                     <li><a href="pricing.html">Devis</a></li>
                 </ul>
                 <h1 id="fh5co-logo"><a href="index.html">Acceuil<span>.</span></a></h1>
                 <ul class="pull-right right-menu">
-                    <li class="fh5co-cta-btn"><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li class="fh5co-cta-btn"><a href="#">Sign up</a></li>
                 </ul>
             </nav>
         </div>
     </section>
     <!-- #fh5co-header -->
 
-    <section id="fh5co-hero" class="js-fullheight" style="background-image: url(images/2023-03-01_17h34_05.png);" data-next="yes">
+    <section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(images/full_image_1.jpg);" data-next="yes">
         <div class="fh5co-overlay"></div>
         <div class="container">
-            <div class="fh5co-intro js-fullheight">
+            <div class="fh5co-intro no-js-fullheight">
                 <div class="fh5co-intro-text">
                     <!--
                         INFO:
@@ -266,8 +298,10 @@
                         Example:
                         <div class="fh5co-right-position">
                     -->
-                    <div class="fh5co-left-position">
-                        <h2 class="animate-box">Contactez nous</h2>
+                    <div class="fh5co-center-position">
+                        <h2 class="animate-box">Mes réalisation</h2>
+                        <h3 class="animate-box">Voici les differents photos de mes rélisation</h3>
+
                     </div>
                 </div>
             </div>
@@ -278,30 +312,35 @@
                 <span class="arrow"><i class="icon-chevron-down"></i></span>
             </a>
         </div>
-
     </section>
+    <!-- END #fh5co-hero -->
 
-    <section id="fh5co-features-2">
-        <form action="process-contact-form.php" method="post">
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" required>
 
-            <label for="prenom">Prénom :</label>
-            <input type="text" name="prenom" required>
+    <table>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+        </tr>
+        <?php
+        $count = 0;
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>";
+            // Affiche le titre dans une cellule du tableau
+            echo "<td>" . $row['titre'] . "</td>";
+            // Affiche la description dans une cellule du tableau
+            echo "<td>" . $row['description'] . "</td>";
 
-            <label for="email">Email :</label>
-            <input type="email" name="email" required>
+            // Incrémente le compteur
+            $count++;
 
-            <label for="telephone">Téléphone :</label>
-            <input type="text" name="telephone" required>
+            // Commence une nouvelle ligne après chaque troisième réalisation
+            if ($count % 3 == 0) {
+                echo "</tr><tr>";
+            }
+        }
+        ?>
+    </table>
 
-            <label for="description">Description :</label>
-            <textarea name="description" rows="4" required></textarea>
-
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
-    <!-- END #fh5co-subscribe -->
 
     <footer id="fh5co-footer">
         <div class="container">
@@ -366,11 +405,6 @@
 </div>
 <!-- END #fh5co-page -->
 
-<!-- For demo purposes Only ( You may delete this anytime :-) -->
-
-<!-- End demo purposes only -->
-
-
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 <!-- jQuery Easing -->
@@ -434,7 +468,5 @@ The code below is to toggle the layout to boxed or wide
     });
 </script>
 
-
 </body>
 </html>
-
