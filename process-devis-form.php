@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $connexion->real_escape_string($description);
 
     // Insérer les données dans la table 'messages'
-    $requete = "INSERT INTO devis (nom, prenom, mail, tel, description) VALUES ('$nom', '$prenom', '$email', '$telephone', '$description')";
+    $requete = "INSERT INTO devis (nom, prenom, mail, tel, description, date) VALUES ('$nom', '$prenom', '$email', '$telephone', '$description', CURRENT_TIMESTAMP)";
 
     if ($connexion->query($requete) === TRUE) {
         echo "<p>Merci pour votre message ! Nous vous contacterons bientôt.</p>

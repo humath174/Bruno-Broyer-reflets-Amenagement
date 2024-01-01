@@ -10,7 +10,11 @@ if (!isset($_SESSION['username'])) {
 }
 
 // Paramètres de connexion à la base de données
-include('database.php');
+$serveur = "192.168.1.24:3306";
+$utilisateur = "monty";
+$motDePasse = "some_pass";
+$baseDeDonnees = "bbra";
+
 // Créer une connexion à la base de données
 $connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
 
@@ -91,6 +95,29 @@ $contacts = $resultatContacts->fetch_all(MYSQLI_ASSOC);
 <nav>
     <p>Bienvenue, <?php echo $_SESSION['username']; ?> | <button class="logout-btn" onclick="location.href='logout.php'">Déconnexion</button></p>
 </nav>
+<h1>Google Analytics Dashboard</h1>
+
+<script>
+    // Remplacez 'YOUR_API_KEY' par votre clé API
+    const apiKey = 'AIzaSyAmOd25bBrV3zsds7_cvC2PKskVNESD1zY';
+
+    // Remplacez 'YOUR_VIEW_ID' par l'ID de vue Google Analytics
+    const viewId = '1090946181348-de4j55nui6b3o08hvuhu1l9htq4e054d.apps.googleusercontent.com';
+
+    // Fonction pour récupérer les données de Google Analytics
+    function getData() {
+        fetch(`https://www.googleapis.com/analytics/v3/data/ga?ids=ga:${viewId}&start-date=30daysAgo&end-date=today&metrics=ga:sessions&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                // Traitement des données ici
+                console.log('Données Google Analytics:', data);
+            })
+            .catch(error => console.error('Erreur de requête:', error));
+    }
+
+    // Appeler la fonction pour récupérer les données
+    getData();
+</script>
 
 <section>
     <h2>Devis</h2>
@@ -132,5 +159,8 @@ $contacts = $resultatContacts->fetch_all(MYSQLI_ASSOC);
     </table>
 </section>
 
-</body>
-</html>
+
+
+
+
+
