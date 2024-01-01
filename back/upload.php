@@ -22,7 +22,8 @@ if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $result = $connexion->query($insertQuery);
 
     if ($result) {
-        echo "L'image a été téléchargée avec succès.";
+        echo "L'image a été téléchargée avec succès.
+        <a href='img-chr.php'>Retourner a l'upload d'image</a>";
     } else {
         echo "Une erreur est survenue lors du téléchargement de l'image : " . $connexion->error;
     }
