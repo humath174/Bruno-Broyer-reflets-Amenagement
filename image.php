@@ -25,7 +25,7 @@ $connexion->close();
     <meta name="msvalidate.01" content="97522F7AC2412B9FEB60193A02ED6806" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bruno Broyer Reflets Amenagements</title>
+    <title>Bruno Broyer Reflets Aménagements</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Bruno Broyer Reflets Amenagements" />
     <meta name="keywords" content="pisciniste, bruno broyer reflets amenagements, bruno broyer, amenagements, piscine chatillon sur chalaronne, chatillon sur chalaronne, ain, rhone, auvergne rhone-alpes" />
@@ -258,8 +258,8 @@ $connexion->close();
         <div class="container">
             <nav role="navigation">
                 <ul class="pull-left left-menu">
-                    <li><a href="about.html">Réalisation</a></li>
-                    <li><a href="image.php">Image</a></li>
+                    <li><a href="about.html">Réalisations</a></li>
+                    <li><a href="image.php">Images</a></li>
                     <li><a href="pricing.html">Devis</a></li>
                 </ul>
                 <h1 id="fh5co-logo"><a href="index.html">Acceuil<span>.</span></a></h1>
@@ -283,14 +283,14 @@ $connexion->close();
                         <div class="fh5co-right-position">
                     -->
                     <div class="fh5co-left-position">
-                        <h2 class="animate-box">Differents Photos de mes réalisation</h2>
+                        <h2 class="animate-box">Différentes Photos de mes réalisations</h2>
                     </div>
                 </div>
             </div>
         </div>
         <div class="fh5co-learn-more animate-box">
             <a href="#" class="scroll-btn">
-                <span class="text">Descender pour en voir plus</span>
+                <span class="text">Descendez pour en voir plus</span>
                 <span class="arrow"><i class="icon-chevron-down"></i></span>
             </a>
         </div>
@@ -330,8 +330,8 @@ $connexion->close();
                         <h3>Entreprise</h3>
                         <ul class="fh5co-links">
                             <li><a href="#">A propos De</a></li>
-                            <li><a href="#">Carriere</a></li>
-                            <li><a href="#">Réalisation</a></li>
+                            <li><a href="#">Carrière</a></li>
+                            <li><a href="#">Réalisations</a></li>
                             <li><a href="#">Devis</a></li>
                             <li><a href="#">Contact</a></li>
                             <li><a href="back/welcome.php">Connexion</a></li>
@@ -341,7 +341,7 @@ $connexion->close();
 
                 <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
                     <div class="fh5co-footer-widget">
-                        <h3>Horraire</h3>
+                        <h3>Horaires</h3>
                         <ul class="fh5co-links">
                             <li><a href="#">Lundi : 8:00 - 19:00 </a></li>
                             <li><a href="#">Mardi : 8:00 - 19:00</a></li>
@@ -356,11 +356,11 @@ $connexion->close();
 
                 <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
                     <div class="fh5co-footer-widget">
-                        <h3>Contact Us</h3>
+                        <h3>Contactez nous</h3>
                         <p>
                             <a href="mailto:info@freehtml5.co">bruno-broyer@orange.fr</a> <br>
-                            3 Lotissement le Clos des Narcisses, <br>
-                            01400 Chatillon sur Chalaronne <br>
+                            3 impasse le Clos des Narcisses, <br>
+                            01400 Châtillon sur Chalaronne <br>
                             <a href="tel:+123456789">+33 6 84 66 26 58</a>
                         </p>
                     </div>
