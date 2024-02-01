@@ -9,7 +9,7 @@ if ($connexion->connect_error) {
 }
 
 // Récupère les données des réalisations depuis la base de données
-$selectQuery = "SELECT * FROM realisations";
+$selectQuery = "SELECT * FROM realisation";
 $result = $connexion->query($selectQuery);
 
 // Ferme la connexion à la base de données
