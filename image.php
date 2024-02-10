@@ -30,6 +30,8 @@ $connexion->close();
     <meta name="description" content="Bruno Broyer Reflets Amenagements" />
     <meta name="keywords" content="pisciniste, bruno broyer reflets amenagements, bruno broyer, amenagements, piscine chatillon sur chalaronne, chatillon sur chalaronne, ain, rhone, auvergne rhone-alpes" />
     <meta name="author" content="DigitalGroup" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         table {
             width: 100%;
