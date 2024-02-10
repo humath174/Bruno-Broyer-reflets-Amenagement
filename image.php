@@ -300,7 +300,7 @@ $connexion->close();
 
     <section id="fh5co-projects">
 
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
             <tr>
                 <?php
                 $count = 0;
