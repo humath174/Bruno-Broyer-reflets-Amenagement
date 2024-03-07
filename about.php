@@ -315,7 +315,7 @@ $connexion->close();
     </section>
     <!-- END #fh5co-hero -->
 
-
+<section class="fh5co-projects">
     <table>
         <tr>
             <th>Titre</th>
@@ -340,6 +340,9 @@ $connexion->close();
         }
         ?>
     </table>
+    </section>
+    
+
 
 
     <footer id="fh5co-footer">
