@@ -266,7 +266,7 @@
                         <div class="fh5co-right-position">
                     -->
                     <div class="fh5co-left-position">
-                        <h2 class="animate-box">Contactez nous</h2>
+                        <h2 class="animate-box">Devis</h2>
                     </div>
                 </div>
             </div>

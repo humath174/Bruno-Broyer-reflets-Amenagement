@@ -271,22 +271,20 @@ $connexion->close();
 <div class="fh5co-loader"></div>
 
 <div id="fh5co-page">
-    <section id="fh5co-header">
-        <div class="container">
-            <nav role="navigation">
-                <ul class="pull-left left-menu">
-                    <li class="active"><a href="about.html">Réalisation</a></li>
-                    <li><a href="image.php">Image</a></li>
-                    <li><a href="pricing.html">Devis</a></li>
-                </ul>
-                <h1 id="fh5co-logo"><a href="index.html">Acceuil<span>.</span></a></h1>
-                <ul class="pull-right right-menu">
-                    <li><a href="#">Login</a></li>
-                    <li class="fh5co-cta-btn"><a href="#">Sign up</a></li>
-                </ul>
-            </nav>
-        </div>
-    </section>
+<section id="fh5co-header">
+			<div class="container">
+				<nav role="navigation">
+					<ul class="pull-left left-menu">
+						<li><a href="about.php">Réalisation</a></li>
+						
+						<li><a href="devis.php">Devis</a></li>
+						<li><a href="contact.php">Contact</a></li>
+					</ul>
+					<h1 id="fh5co-logo"><a href="index.html">Acceuil<span>.</span></a></h1>
+					
+				</nav>
+			</div>
+		</section>
     <!-- #fh5co-header -->
 
     <section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(images/full_image_1.jpg);" data-next="yes">

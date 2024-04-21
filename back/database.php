@@ -1,7 +1,7 @@
 <?php
 // Paramètres de connexion à la base de données
-$serveur = "86.202.255.13:3306";
+$serveur = "86.248.100.25";
 $utilisateur = "nouveau_utilisateur";
 $motDePasse = "mot_de_passe";
-$baseDeDonnees = "bbra";
+$baseDeDonnees = "dashboard";
 ?>
