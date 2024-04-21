@@ -4,12 +4,14 @@ include('back/database.php');
 
 $connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
 
+$site_id = 1;
+
 if ($connexion->connect_error) {
     die("La connexion à la base de données a échoué : " . $connexion->connect_error);
 }
 
 // Récupère les données des images depuis la base de données
-$selectQuery = "SELECT * FROM photos";
+$selectQuery = "SELECT * FROM Images WHERE site_id = $site_id";
 $result = $connexion->query($selectQuery);
 
 // Ferme la connexion à la base de données
