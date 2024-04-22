@@ -20,14 +20,14 @@ $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 $telephone = $_POST['telephone'];
 $description = $_POST['description'];
+$site_id = 1;  // La valeur fixe à ajouter
 
-
-// Préparer la requête SQL d'insertion
-$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description) VALUES (?, ?, ?, ?, ?)";
+// Préparer la requête SQL d'insertion avec la valeur fixe
+$sql = "INSERT INTO Contacts (site_id, nom, prenom, mail, tel, description) VALUES (?, ?, ?, ?, ?, ?)";
 
 // Préparer la requête pour éviter les injections SQL
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $nom, $prenom, $email, $telephone, $description);
+$stmt->bind_param("isssss", $site_id, $nom, $prenom, $email, $telephone, $description);
 
 // Exécuter la requête
 if ($stmt->execute()) {
@@ -40,4 +40,3 @@ if ($stmt->execute()) {
 $stmt->close();
 $conn->close();
 ?>
-
