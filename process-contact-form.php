@@ -1,6 +1,10 @@
 <?php
 
-include('back/database.php');
+// Paramètres de connexion à la base de données
+$serveur = "localhost";
+$utilisateur = "nouveau_utilisateur";
+$motDePasse = "mot_de_passe";
+$baseDeDonnees = "dashboard";
 
 // Connexion à la base de données
 $conn = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
@@ -16,10 +20,10 @@ $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 $telephone = $_POST['telephone'];
 $description = $_POST['description'];
-$site_id = 1;
+
 
 // Préparer la requête SQL d'insertion
-$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description, site_id) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description, site_id) VALUES (?, ?, ?, ?, ?, '1')";
 
 // Préparer la requête pour éviter les injections SQL
 $stmt = $conn->prepare($sql);
