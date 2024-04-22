@@ -11,8 +11,12 @@ if ($connexion->connect_error) {
 }
 
 // Récupère les données des images depuis la base de données
-$selectQuery = "SELECT * FROM Images WHERE site_id = $site_id";
-$result = $connexion->query($selectQuery);
+$selectQuery = "SELECT * FROM Images WHERE site_id = ?";
+$stmt = $connexion->prepare($selectQuery);
+$stmt->bind_param("i", $site_id);
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 // Ferme la connexion à la base de données
 $connexion->close();
@@ -309,7 +313,7 @@ $connexion->close();
                 $count = 0;
                 while ($row = $result->fetch_assoc()) {
                     // Affiche l'image dans une cellule du tableau
-                    echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['image_data']) . "' alt='" . $row['image_name'] . "'></td>";
+                    echo "<td><img src='data:image/jpeg;base64," . base64_encode($row['file_path']) . "' alt='" . $row['image_name'] . "'></td>";
 
                     // Incrémente le compteur
                     $count++;
