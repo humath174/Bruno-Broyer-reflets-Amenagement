@@ -1,6 +1,6 @@
 <?php
 // Détails de connexion à la base de données
-$servername = "localhost:3306";
+$servername = "localhost";
 $username = "pma-admin";
 $password = "MotdePasseComplexe2";
 $dbname = "dashboard";
