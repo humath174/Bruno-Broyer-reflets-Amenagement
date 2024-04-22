@@ -21,7 +21,7 @@ $telephone = $_POST['telephone'];
 $description = $_POST['description'];
 
 // Préparer la requête SQL d'insertion
-$sql = "INSERT INTO Contacts (nom, prenom, email, telephone, description) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description) VALUES (?, ?, ?, ?, ?)";
 
 // Préparer la requête pour éviter les injections SQL
 $stmt = $conn->prepare($sql);
