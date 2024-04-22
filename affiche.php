@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 // Requête pour récupérer les demandes de contact
-$sql = "SELECT id, nom, prenom, email, telephone, description, date_creation FROM contacts ORDER BY date_creation DESC";
+$sql = "SELECT contact_id, nom, prenom, mail, tel, description, contact_time FROM Contacts ORDER BY contact_time DESC";
 
 // Exécuter la requête
 $result = $conn->query($sql);
