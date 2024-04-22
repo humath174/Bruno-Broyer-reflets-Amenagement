@@ -23,11 +23,11 @@ $description = $_POST['description'];
 
 
 // Préparer la requête SQL d'insertion
-$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description, site_id) VALUES (?, ?, ?, ?, ?, '1')";
+$sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description) VALUES (?, ?, ?, ?, ?)";
 
 // Préparer la requête pour éviter les injections SQL
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssss", $nom, $prenom, $email, $telephone, $description, $site_id);
+$stmt->bind_param("sssss", $nom, $prenom, $email, $telephone, $description);
 
 // Exécuter la requête
 if ($stmt->execute()) {
