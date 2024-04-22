@@ -31,7 +31,7 @@ $stmt->bind_param("isssss", $site_id, $nom, $prenom, $email, $telephone, $descri
 
 // Exécuter la requête
 if ($stmt->execute()) {
-    header("Location: contact.php");
+    header("Location: devis.php");
 } else {
     echo "Erreur lors de l'enregistrement des données : " . $stmt->error;
 }

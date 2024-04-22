@@ -281,7 +281,7 @@
     </section>
 
     <section id="fh5co-features-2">
-        <form action="process-contact-form.php" method="post">
+        <form action="process-devis-form.php" method="post">
             <label for="nom">Nom :</label>
             <input type="text" name="nom" required>
 
