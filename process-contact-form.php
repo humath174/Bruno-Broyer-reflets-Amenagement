@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $telephone = $_POST['telephone'];
     $description = $_POST['description'];
-    $site_id = 1;
+    
 
     // Échapper les caractères spéciaux pour éviter les injections SQL
     $nom = $connexion->real_escape_string($nom);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = $connexion->real_escape_string($description);
 
     // Insérer les données dans la table 'messages'
-    $requete = "INSERT INTO Contacts (nom, prenom, mail, tel, description, contact_time, site_id) VALUES ('$nom', '$prenom', '$email', '$telephone', '$description', current_date, '$site_id')";
+    $requete = "INSERT INTO Contacts (nom, prenom, mail, tel, description, contact_time) VALUES ('$nom', '$prenom', '$email', '$telephone', '$description', current_date)";
 
     if ($connexion->query($requete) === TRUE) {
         echo "<p>Merci pour votre message ! Nous vous contacterons bientôt.</p>
