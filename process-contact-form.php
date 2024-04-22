@@ -1,8 +1,8 @@
 <?php
 // Détails de connexion à la base de données
 $servername = "localhost:3306";
-$username = "nouveau_utilisateur";
-$password = "mot_de_passe";
+$username = "pma-admin";
+$password = "MotdePasseComplexe2";
 $dbname = "dashboard";
 
 // Connexion à la base de données
