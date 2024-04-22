@@ -1,43 +1,42 @@
 <?php
-// Paramètres de connexion à la base de données
-include('back/database.php');
 
- 
-// Créer une connexion à la base de données
-$connexion = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
+// Paramètres de connexion à la base de données
+$serveur = "localhost";
+$utilisateur = "nouveau_utilisateur";
+$motDePasse = "mot_de_passe";
+$baseDeDonnees = "dashboard";
+
+// Connexion à la base de données
+$conn = new mysqli($serveur, $utilisateur, $motDePasse, $baseDeDonnees);
 
 // Vérifier la connexion
-if ($connexion->connect_error) {
-    die("La connexion à la base de données a échoué : " . $connexion->connect_error);
+if ($conn->connect_error) {
+    die("Connexion échouée : " . $conn->connect_error);
 }
 
-// Traitement du formulaire
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $telephone = $_POST['telephone'];
-    $description = $_POST['description'];
+// Récupérer les données du formulaire
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$email = $_POST['email'];
+$telephone = $_POST['telephone'];
+$description = $_POST['description'];
+$site_id = 1;  // La valeur fixe à ajouter
 
-    // Échapper les caractères spéciaux pour éviter les injections SQL
-    $nom = $connexion->real_escape_string($nom);
-    $prenom = $connexion->real_escape_string($prenom);
-    $email = $connexion->real_escape_string($email);
-    $telephone = $connexion->real_escape_string($telephone);
-    $description = $connexion->real_escape_string($description);
+// Préparer la requête SQL d'insertion avec la valeur fixe
+$sql = "INSERT INTO Devis (site_id, nom, prenom, mail, tel, description) VALUES (?, ?, ?, ?, ?, ?)";
 
-    // Insérer les données dans la table 'messages'
-    $requete = "INSERT INTO devis (nom, prenom, mail, tel, description, date) VALUES ('$nom', '$prenom', '$email', '$telephone', '$description', CURRENT_TIMESTAMP)";
+// Préparer la requête pour éviter les injections SQL
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("isssss", $site_id, $nom, $prenom, $email, $telephone, $description);
 
-    if ($connexion->query($requete) === TRUE) {
-        echo "<p>Merci pour votre message ! Nous vous contacterons bientôt.</p>
-<a href='index.html'>Retournez a l'acceuil</a>";
-    } else {
-        echo "Erreur : " . $requete . "<br>" . $connexion->error;
-    }
+// Exécuter la requête
+if ($stmt->execute()) {
+    header("Location: contact.php");
+} else {
+    echo "Erreur lors de l'enregistrement des données : " . $stmt->error;
 }
 
-// Fermer la connexion à la base de données
-$connexion->close();
+// Fermer la connexion
+$stmt->close();
+$conn->close();
 ?>

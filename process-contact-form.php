@@ -31,7 +31,7 @@ $stmt->bind_param("isssss", $site_id, $nom, $prenom, $email, $telephone, $descri
 
 // Exécuter la requête
 if ($stmt->execute()) {
-    echo "Données enregistrées avec succès.";
+    header("Location: contact.php");
 } else {
     echo "Erreur lors de l'enregistrement des données : " . $stmt->error;
 }
