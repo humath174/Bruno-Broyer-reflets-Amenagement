@@ -1,6 +1,6 @@
 <?php
 // Détails de connexion à la base de données
-$servername = "86.248.100.25:3306";
+$servername = "localhost:3306";
 $username = "nouveau_utilisateur";
 $password = "mot_de_passe";
 $dbname = "dashboard";
