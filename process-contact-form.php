@@ -15,7 +15,7 @@ $prenom = $_POST['prenom'];
 $email = $_POST['email'];
 $telephone = $_POST['telephone'];
 $description = $_POST['description'];
-$site_id = $_POST['description'];
+$site_id = 1;
 
 // Préparer la requête SQL d'insertion
 $sql = "INSERT INTO Contacts (nom, prenom, mail, tel, description, site_id) VALUES (?, ?, ?, ?, ?, ?)";
