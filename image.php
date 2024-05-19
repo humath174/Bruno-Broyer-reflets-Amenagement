@@ -259,7 +259,7 @@ $connexion->close();
 <body>
 
 <!-- Loader -->
-<div class="fh5co-loader"></div>
+        
 
 <div id="fh5co-page">
 <section id="fh5co-header">
