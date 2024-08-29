@@ -1,68 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/about.php</loc>
-        <priority>0.7</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/image.php</loc>
-        <priority>0.7</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/pricing.html</loc>
-        <priority>0.7</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/index.html</loc>
-        <priority>1</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/contact.php</loc>
-        <priority>0.7</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/about.html</loc>
-        <priority>0.7</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/images/2erephotoamenagement.jpg</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/images/2erephotopiscine.jpg</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/images/2023-03-01_17h34_05.png</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/images/5erephotopiscine.jpg</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/tel:+123456789</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/back/welcome.php</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/contact.html</loc>
-        <priority>0.5</priority>
-        <changefreq>weekly</changefreq>
-    </url>
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/index.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/Piscine.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/Amenagement.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/À-propos-de.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/Devis.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/Contact.html</loc>
+</url>
+<url>
+<loc>https://bruno-broyer-reflets-amenagements.tk/Piscine.ht</loc>
+</url>
 </urlset>
