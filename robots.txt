@@ -4,4 +4,4 @@ Disallow: /nogooglebot/
 User-agent: *
 Allow: /
 
-Sitemap: https://bruno-broyer-reflets-amenagements.tk/sitemap.xml
+Sitemap: https://brunobroyerrefletsamenagements.digitalweb-dynamics.com/sitemap.xml
